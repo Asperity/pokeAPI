@@ -9,7 +9,7 @@ async function main(){
     console.log(pokemon);
 
     app.get("/new" , (req,res) => {
-        
+        console.log("NEW GAME!!! You have 5 correct guesses!!");
     })
     
     app.get("/:hint", (req,res) => {
