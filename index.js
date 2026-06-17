@@ -8,6 +8,10 @@ async function main(){
     const pokemon = data;
     console.log(pokemon);
 
+    app.get("/new" , (req,res) => {
+        
+    })
+    
     app.get("/:hint", (req,res) => {
         const {hint} = req.params;
         const h = Number(hint);
@@ -16,7 +20,4 @@ async function main(){
 }
 main();
 
-app.get("/new" , (req,res) => {
-    
-})
 
