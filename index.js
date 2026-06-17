@@ -5,11 +5,13 @@ async function main(){
     const app = express();
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
     const data = await res.json();
-    const pokemon = data.species.name;
+    const pokemon = data;
     console.log(pokemon);
 
 }
 main();
 
-
+app.get("/new" , (req,res) => {
+    
+})
 
