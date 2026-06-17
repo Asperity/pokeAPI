@@ -8,6 +8,11 @@ async function main(){
     const pokemon = data.species.name;
     console.log(pokemon);
 
+    app.get("/:hint", (req,res) => {
+        const {hint} = req.params;
+        const h = Number(hint);
+    })
+
 }
 main();
 
