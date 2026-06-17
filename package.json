@@ -1,6 +1,7 @@
 {
   "name": "pokeAPI",
   "packageManager": "yarn@4.17.0",
+  "type": "module",
   "dependencies": {
     "express": "^5.2.1",
     "pokedex-promise-v2": "^4.2.3"
