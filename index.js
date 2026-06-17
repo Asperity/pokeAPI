@@ -1,4 +1,9 @@
-import Pokedex from 'pokedex-promise-v2';
 import express from "express";
-const app = express();
-const P = new Pokedex();
+
+async function main(){
+    const app = express();
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon/${pokemonID}')
+}
+
+
+
