@@ -18,6 +18,9 @@ console.log("REEE")
         randPokemon = await pokemonGuess.getPokemonByName(pokemonID);
         res.send("NEW GAME!!! You have 5 correct guesses!!");
     })
+    app.get("/guess",(req,res) => {
+        //Guessing function here
+    } )
     
     app.get("/:hint", (req,res) => {
         const {hint} = req.params;
