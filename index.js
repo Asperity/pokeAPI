@@ -19,7 +19,11 @@ console.log("REEE")
         res.send("NEW GAME!!! You have 5 correct guesses!!");
     })
     app.get("/guess",(req,res) => {
-        //Guessing function here
+        //Guessing function here?
+        //Can guess name (correct name automatically wins, starts new game)
+        // Guess type of pokemon
+        //Guess generation of pokemon
+        //Guess what moves pokemon can know
     } )
     
     app.get("/:hint", (req,res) => {
