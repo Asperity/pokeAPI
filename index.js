@@ -1,11 +1,10 @@
 import express from "express";
-
 import Pokedex from 'pokedex-promise-v2';
 const pokemonGuess = new Pokedex();
-
+let gameid;
 let randPokemon;
-const PORT = 3000;
-    const pokemonID = Math.floor(Math.random()*1024)+1;
+const PORT = 3001;
+    const pokemonID = Math.floor(Math.random()*151)+1;
     const app = express();
     //const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
     // const data = await res.json();
@@ -16,19 +15,31 @@ const PORT = 3000;
     })
     app.get("/new" , async  (req,res) => {
         randPokemon = await pokemonGuess.getPokemonByName(pokemonID);
-        res.send("NEW GAME!!! You have 5 correct guesses!!");
+        gameid = Math.floor(1000 + Math.random() * 9000); //This was AI generated
+        console.log(gameid)
+        res.send("NEW GAME!!! You have 5 correct guesses!!\n Your game ID is: " + gameid);
+
     })
-    app.get("/guess",(req,res) => {
+    app.get("/guess/:gameid/:yourguess",(req,res) => {
         //Guessing function here?
-        res.send("Guess that Pokemon!!");
+        // res.send("Guess that Pokemon!!");
+        const {yourguess, gameid} = req.params;
+        const pokemonName = randPokemon.name;
+        if (yourguess.toLowerCase() === pokemonName){
+            res.send("Correct!")
+        }
+        else{
+            res.send("Try again!")
+        }
+        
 
         //Can guess name (correct name automatically wins, starts new game)
         // Guess type of pokemon
         //Guess generation of pokemon
         //Guess what moves pokemon can know
-    } )
+     } )
     
-    app.get("/:hint", (req,res) => {
+    app.get("/hint/:gameid", (req,res) => {
         const {hint} = req.params;
         const h = Number(hint);
     })
