@@ -1,10 +1,10 @@
 import express from "express";
+
 import Pokedex from 'pokedex-promise-v2';
 const pokemonGuess = new Pokedex();
 
 let randPokemon;
 const PORT = 3000;
-console.log("REEE")
     const pokemonID = Math.floor(Math.random()*1024)+1;
     const app = express();
     //const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
@@ -20,6 +20,8 @@ console.log("REEE")
     })
     app.get("/guess",(req,res) => {
         //Guessing function here?
+        res.send("Guess that Pokemon!!");
+
         //Can guess name (correct name automatically wins, starts new game)
         // Guess type of pokemon
         //Guess generation of pokemon
